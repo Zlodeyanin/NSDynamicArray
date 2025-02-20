@@ -9,14 +9,13 @@ namespace NSDynamicArray
             const string CommandSum = "sum";
             const string CommandExit = "exit";
 
-            int[] numbers = new int[1];
-            int index = 0;
+            int[] numbers = new int[0];
             int sum;
             bool isWork = true;
 
             while (isWork)
             {
-                for (int i = 0; i < numbers.Length - 1; i++)
+                for (int i = 0; i < numbers.Length; i++)
                 {
                     Console.Write(numbers[i] + " ");
                 }
@@ -45,8 +44,6 @@ namespace NSDynamicArray
                         break;
 
                     default:
-                        int number = Convert.ToInt32(userInput);
-                        numbers[index] = number;
                         int[] tempNumbers = new int[numbers.Length + 1];
 
                         for (int i = 0; i < numbers.Length; i++)
@@ -54,7 +51,7 @@ namespace NSDynamicArray
                             tempNumbers[i] = numbers[i];
                         }
 
-                        index++;
+                        tempNumbers[tempNumbers.Length - 1] = Convert.ToInt32(userInput);
                         numbers = tempNumbers;
                         break;
                 }
